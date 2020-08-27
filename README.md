@@ -2,6 +2,16 @@
 
 Enables AWS Config and adds managed config rules with good defaults.
 
+## Terraform Versions
+
+_This is how we're managing the different versions._
+
+Terraform 0.13. Pin module version to ~> 3.0. Submit pull-requests to master branch.
+\_
+Terraform 0.12. Pin module version to ~> 2.0. Submit pull-requests to terraform012 branch.
+
+Terraform 0.11. Pin module version to ~> 1.0. Submit pull-requests to terraform011 branch.
+
 ## Supported AWS Config Rules
 
 ### ACM
@@ -62,12 +72,6 @@ Enables AWS Config and adds managed config rules with good defaults.
 * s3-bucket-public-write-prohibited: Checks that your S3 buckets do not allow public write access.
 * s3-bucket-ssl-requests-only: Checks whether S3 buckets have policies that require requests to use Secure Socket Layer (SSL).
 
-## Terraform Versions
-
-Terraform 0.12. Pin module version to ~> 2.x Submit pull-requests to master branch.
-
-Terraform 0.11. Pin module version to ~> 1.5.1. Submit pull-requests to terraform011 branch.
-
 ## Usage
 
 **Note: This module sets up AWS IAM Roles and Policies, which are globally namespaced. If you plan to have multiple instances of AWS Config, make sure they have unique values for `config_name`.**
@@ -88,15 +92,15 @@ module "aws_config" {
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.12.0 |
-| aws | ~> 2.70 |
+| terraform | ~> 0.13.0 |
+| aws | ~> 3.0 |
 | template | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.70 |
+| aws | ~> 3.0 |
 | template | >= 2.0 |
 
 ## Inputs
