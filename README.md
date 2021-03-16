@@ -64,11 +64,9 @@ Enables AWS Config and adds managed config rules with good defaults.
 
 ## Terraform Versions
 
-Terraform 0.13. Pin module version to ~> 4.x. Submit pull-requests to master branch.
+Terraform 0.13 and newer. Pin module version to ~> 4.x. Submit pull-requests to master branch.
 
 Terraform 0.12. Pin module version to ~> 3.0. Submit pull-requests to terraform012 branch.
-
-Terraform 0.11. Pin module version to ~> 1.5.1. Submit pull-requests to terraform011 branch.
 
 ## Usage
 
@@ -90,15 +88,15 @@ module "aws_config" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.7, < 0.14 |
-| aws | >= 2.70, < 4.0 |
+| terraform | >= 0.12.7 |
+| aws | >= 2.70 |
 | template | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.70, < 4.0 |
+| aws | >= 2.70 |
 | template | >= 2.0 |
 
 ## Inputs
@@ -124,22 +122,25 @@ module "aws_config" {
 | check\_iam\_root\_access\_key | Enable iam-root-access-key rule | `bool` | `true` | no |
 | check\_iam\_user\_no\_policies\_check | Enable iam-user-no-policies-check rule | `bool` | `true` | no |
 | check\_instances\_in\_vpc | Enable instances-in-vpc rule | `bool` | `true` | no |
+| check\_mfa\_enabled\_for\_iam\_console\_access | Enable mfa-enabled-for-iam-console-access rule | `bool` | `false` | no |
 | check\_multi\_region\_cloud\_trail | Enable multi-region-cloud-trail-enabled rule | `bool` | `false` | no |
 | check\_rds\_public\_access | Enable rds-instance-public-access-check rule | `bool` | `false` | no |
 | check\_rds\_snapshots\_public\_prohibited | Enable rds-snapshots-public-prohibited rule | `bool` | `true` | no |
 | check\_rds\_storage\_encrypted | Enable rds-storage-encrypted rule | `bool` | `true` | no |
 | check\_required\_tags | Enable required-tags rule | `bool` | `false` | no |
+| check\_restricted\_ssh | Enable restricted-ssh rule | `bool` | `false` | no |
 | check\_root\_account\_mfa\_enabled | Enable root-account-mfa-enabled rule | `bool` | `false` | no |
 | check\_s3\_bucket\_public\_write\_prohibited | Enable s3-bucket-public-write-prohibited rule | `bool` | `true` | no |
 | check\_s3\_bucket\_ssl\_requests\_only | Enable s3-bucket-ssl-requests-only rule | `bool` | `true` | no |
 | check\_vpc\_default\_security\_group\_closed | Enable vpc-default-security-group-closed rule | `bool` | `true` | no |
 | config\_aggregator\_name | The name of the aggregator. | `string` | `"organization"` | no |
 | config\_delivery\_frequency | The frequency with which AWS Config delivers configuration snapshots. | `string` | `"Six_Hours"` | no |
-| config\_logs\_bucket | The S3 bucket for AWS Config logs. | `string` | n/a | yes |
+| config\_logs\_bucket | The S3 bucket for AWS Config logs. If you have set enable\_config\_recorder to false then this can be an empty string. | `string` | n/a | yes |
 | config\_logs\_prefix | The S3 prefix for AWS Config logs. | `string` | `"config"` | no |
 | config\_max\_execution\_frequency | The maximum frequency with which AWS Config runs evaluations for a rule. | `string` | `"TwentyFour_Hours"` | no |
 | config\_name | The name of the AWS Config instance. | `string` | `"aws-config"` | no |
 | config\_sns\_topic\_arn | An SNS topic to stream configuration changes and notifications to. | `string` | `null` | no |
+| enable\_config\_recorder | Enables configuring the AWS Config recorder resources in this module. | `bool` | `true` | no |
 | include\_global\_resource\_types | Specifies whether AWS Config includes all supported types of global resources with the resources that it records. | `bool` | `true` | no |
 | password\_max\_age | Number of days before password expiration. | `number` | `90` | no |
 | password\_min\_length | Password minimum length. | `number` | `14` | no |

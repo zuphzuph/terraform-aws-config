@@ -1,8 +1,8 @@
 module github.com/trussworks/terraform-aws-config
 
-go 1.14
+go 1.15
 
 require (
-	github.com/gruntwork-io/terratest v0.30.7
-	github.com/stretchr/testify v1.6.1
+	github.com/gruntwork-io/terratest v0.32.6
+	github.com/stretchr/testify v1.7.0
 )
